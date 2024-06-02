@@ -86,7 +86,7 @@ export function TransactWithPaymaster() {
           padding: "10px",
         }}
         >
-          This button will update the Name of the NFT for your account. It will be minted using the paymaster service.
+          This button will update the Name of the Svg for your account. It will be minted using the paymaster service.
         </p>
         <button
           onClick={() => {
