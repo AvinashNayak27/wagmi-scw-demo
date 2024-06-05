@@ -28,6 +28,8 @@ export function TransactWithPaymaster() {
     }
   }, [availableCapabilities]);
 
+  const [numberOfNFTs, setNumberOfNFTs] = useState<number>(1);
+
   return (
     <div>
       <h2>Transact With Paymaster</h2>
@@ -63,6 +65,11 @@ export function TransactWithPaymaster() {
         >
           This button will mint Multiple NFT for your account. It will be minted using the paymaster service.
         </p>
+        <input
+          type="number"
+          value={numberOfNFTs}
+          onChange={(e) => setNumberOfNFTs(parseInt(e.target.value))}
+        />
         <button
           onClick={() => {
             writeContracts({
@@ -71,7 +78,7 @@ export function TransactWithPaymaster() {
                   address: myNFTAddress,
                   abi: myNFTABI,
                   functionName: "batchMintNFT",
-                  args: [account.address,10],
+                  args: [account.address,numberOfNFTs],
                 },
               ],
               capabilities,
